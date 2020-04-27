@@ -26,7 +26,7 @@ int how_to_escape_button(game_t *game)
     sfText_setFont(game->how_to->text_esc, game->how_to->font_esc);
     sfText_setCharacterSize(game->how_to->text_esc, 30);
     sfText_setString(game->how_to->text_esc,
-        "If you click on the esc button you can acces to the settings menu !");
+        "If you click on the esc button you can pause the game!");
     sfText_setPosition(game->how_to->text_esc, pos_text);
     sfText_setColor(game->how_to->text_esc, sfBlack);
     return 0;
@@ -43,7 +43,7 @@ int keybord_p_text(game_t *game)
     sfText_setFont(game->how_to->text_p, game->how_to->font_p);
     sfText_setCharacterSize(game->how_to->text_p, 30);
     sfText_setString(game->how_to->text_p,
-    "If you click on the P button, the player attack the enemy");
+    "If you click on the P button, the player attacks the enemys");
     sfText_setPosition(game->how_to->text_p, pos_text);
     sfText_setColor(game->how_to->text_p, sfBlack);
     return 0;
@@ -76,8 +76,8 @@ int keybord_key_text(game_t *game)
     sfText_setFont(game->how_to->text_key, game->how_to->font_key);
     sfText_setCharacterSize(game->how_to->text_key, 30);
     sfText_setString(game->how_to->text_key,
-    "Right button to move right ! Left button to move left !\
-    Up button to move up ! Down button to move down !");
+    "Right arrow to move right ! Left arrow to move left !\
+    Up arrow to move up ! Down arrow to move down !");
     sfText_setPosition(game->how_to->text_key, pos_text);
     sfText_setColor(game->how_to->text_key, sfBlack);
     return 0;
