@@ -22,8 +22,6 @@ void selection_events(utils_t *utils)
 
 void display_selection(utils_t *utils, select_t *select)
 {
-    sfVector2i pos = sfMouse_getPositionRenderWindow(utils->window);
-
     sfRenderWindow_clear(utils->window, sfBlack);
     selection_events(utils);
     sfRenderWindow_drawSprite(utils->window, select->back, NULL);

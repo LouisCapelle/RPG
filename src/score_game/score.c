@@ -35,7 +35,6 @@ int score(game_t *game)
 
 int update_score(game_t *game)
 {
-    game->score->score += 0.2;
     char *int_text = my_itoa(game->score->score);
     sfText_setString(game->score->live_int, int_text);
     return 0;

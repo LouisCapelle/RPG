@@ -91,13 +91,13 @@ void not_talked(utils_t *, achiv_t *);
 void draw_talked(utils_t *, achiv_t *);
 void check_last_indic(utils_t *, achiv_t *);
 int init_achivement(achiv_t *);
-void all_achivs(achiv_t *, dungeon_t *);
+void all_achivs(achiv_t *, dungeon_t *, score_t *);
 
 /* ENEMYS */
 void enemy_move(game_t *, enemy_t *, sfVector2f);
 void init_enemy(enemy_t **, size_t);
 void draw_enemys(utils_t *, enemy_t *);
-void kill_enemys(enemy_t **, achiv_t *);
+void kill_enemys(enemy_t **, achiv_t *, score_t *);
 
 /* FOOD */
 int init_food(food_t **);
@@ -108,7 +108,7 @@ void pick_up_food(food_t **foods, sfVector2f player_pos, play_t *play);
 /* KEYS */
 void init_keys(keys_t **);
 void draw_keys(utils_t *, keys_t *);
-void pick_up_keys(keys_t **, sfVector2f, achiv_t *);
+void pick_up_keys(keys_t **, sfVector2f, achiv_t *, score_t *);
 int player_inrange_food(sfVector2f player_pos, food_t *food);
 
 /* INVENTORY */
@@ -147,7 +147,7 @@ int display_heart(play_t *play, utils_t *utils);
 int destroy_heart_next_two(play_t *play, utils_t *utils);
 int destroy_heart_next(play_t *play, utils_t *utils);
 int attack_enemis(play_t *play, utils_t *utils, enemy_t *ene);
-int create_texture_attack(play_t *play, utils_t *utils);
+int create_texture_attack(play_t *play);
 
 /* DUNGEON */
 int init_dungeon(dungeon_t *dungeon);

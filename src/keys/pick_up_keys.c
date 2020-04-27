@@ -42,8 +42,11 @@ int my_delete_nodes(keys_t **begin, sfVector2f player_pos)
     return 0;
 }
 
-void pick_up_keys(keys_t **keys, sfVector2f player_pos, achiv_t *achiv)
+void pick_up_keys(keys_t **keys, sfVector2f player_pos, achiv_t *achiv,
+                score_t *score)
 {
-    if (my_delete_nodes(keys, player_pos))
+    if (my_delete_nodes(keys, player_pos)) {
         achiv->player_keys++;
+        score->score += 30;
+    }
 }

@@ -19,16 +19,16 @@ sfVector2f player_pos)
         draw_enemys(utils, game->ene);
         enemy_move(game, game->ene, player_pos);
         draw_keys(utils, game->key);
-        pick_up_keys(&game->key, player_pos, game->achiv);
+        pick_up_keys(&game->key, player_pos, game->achiv, game->score);
         pick_up_food(&game->food, player_pos, game->play);
-        kill_enemys(&game->ene, game->achiv);
+        kill_enemys(&game->ene, game->achiv, game->score);
         draw_achivement(utils, game->achiv);
         draw_inventory(utils, game->inv, game->achiv);
         display_score(game);
         display_heart(game->play, game->utils);
         display_how_to(game);
         display_settings_button(game);
-        all_achivs(game->achiv, game->dungeon);
+        all_achivs(game->achiv, game->dungeon, game->score);
         if (game->map->open_map == true)
             print_minimap(game);
         if (game->play->attack_number >= 1) {
