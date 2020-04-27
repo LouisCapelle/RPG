@@ -87,6 +87,9 @@ SCORE = 	src/score_game/init_score_game.c	\
 DESTROY = 	src/destroy/destroy_achievement.c 	\
 			src/destroy/destroy_all.c 			\
 			src/destroy/destroy_ancient.c 		\
+			src/destroy/destroy_menu.c 			\
+			src/destroy/destroy_dungeon.c 		\
+			src/destroy/destroy_player_enemis.c \
 
 SRCS	= 	src/main.c 							\
 			src/open_window.c 					\

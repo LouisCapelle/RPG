@@ -197,5 +197,9 @@ int rules_text(game_t *game);
 int destroy_achievement(game_t *game);
 int destroy_all(game_t *game);
 int destroy_ancient(game_t *game);
+int destroy_death_menu(game_t *game);
+int destroy_dungeon(game_t *game);
+int destroy_enemis(game_t *game);
+int destroy_player(game_t *game);
 
 #endif /* !PROTO */
