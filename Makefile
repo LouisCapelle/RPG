@@ -84,6 +84,10 @@ HOW_TO =	src/how_to_play/init_how_to.c 		\
 SCORE = 	src/score_game/init_score_game.c	\
 			src/score_game/score.c				\
 
+DESTROY = 	src/destroy/destroy_achievement.c 	\
+			src/destroy/destroy_all.c 			\
+			src/destroy/destroy_ancient.c 		\
+
 SRCS	= 	src/main.c 							\
 			src/open_window.c 					\
 			src/capture_event.c 				\
@@ -114,6 +118,7 @@ SRCS	= 	src/main.c 							\
 			$(HIGHSCORE)						\
 			$(FOOD) 							\
 			$(HOW_TO)							\
+			$(DESTROY)							\
 
 OBJS	= $(SRCS:.c=.o)
 

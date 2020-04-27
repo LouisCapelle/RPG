@@ -86,5 +86,6 @@ int open_window(utils_t *utils, game_t *game)
         sfRenderWindow_display(utils->window);
         sfRenderWindow_clear(utils->window, sfBlack);
     }
+    destroy_all(game);
     return 0;
 }
