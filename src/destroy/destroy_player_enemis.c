@@ -7,11 +7,6 @@
 
 #include "my.h"
 
-int destroy_enemis(game_t *game)
-{
-    return 0;
-}
-
 int destroy_player_life(game_t *game)
 {
     sfSprite_destroy(game->play->heart->one);
