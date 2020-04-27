@@ -90,6 +90,8 @@ DESTROY = 	src/destroy/destroy_achievement.c 	\
 			src/destroy/destroy_menu.c 			\
 			src/destroy/destroy_dungeon.c 		\
 			src/destroy/destroy_player_enemis.c \
+			src/destroy/destroy_how_to.c 		\
+			src/destroy/destroy_inventory.c  	\
 
 SRCS	= 	src/main.c 							\
 			src/open_window.c 					\

@@ -201,5 +201,7 @@ int destroy_death_menu(game_t *game);
 int destroy_dungeon(game_t *game);
 int destroy_enemis(game_t *game);
 int destroy_player(game_t *game);
+int destroy_how_to(game_t *game);
+int destroy_inventory(inv_t *inv);
 
 #endif /* !PROTO */
