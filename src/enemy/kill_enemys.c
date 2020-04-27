@@ -31,10 +31,11 @@ int my_delete_enemys(enemy_t **begin)
     return 0;
 }
 
-void kill_enemys(enemy_t **ene, achiv_t *achiv)
+void kill_enemys(enemy_t **ene, achiv_t *achiv, score_t *score)
 {
     if (my_delete_enemys(ene)) {
         achiv->player_gold += 5;
         achiv->player_kills++;
+        score->score += 50;
     }
 }

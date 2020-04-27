@@ -36,6 +36,9 @@ typedef struct achivs_s {
     sfSprite *tick;
     sfTexture *back_text;
     sfSprite *back;
+    bool gold_comp;
+    bool kill_comp;
+    bool keys_comp;
 }achiv_t;
 
 #endif /* !ACHIEVEMENT */

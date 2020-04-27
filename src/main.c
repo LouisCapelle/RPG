@@ -26,7 +26,7 @@ int init_how_to_play(game_t *game)
     return 0;
 }
 
-int init_game_next(game_t *game, char **av)
+int init_game_next(game_t *game)
 {
     if (!game->utils || !game->startmenu || !game->achiv || !game->pnj
         || !game->play || !game->map || !game->inv || !game->dungeon ||
@@ -39,7 +39,7 @@ int init_game_next(game_t *game, char **av)
         || score(game) || get_high_scores(game->high) ||
         init_dungeon(game->dungeon) || init_how_to(game->how_to))
         return 1;
-    create_texture_attack(game->play, game->utils);
+    create_texture_attack(game->play);
     game->utils->in_start = true;
     game->utils->width = 1920;
     game->utils->height = 1080;
@@ -47,7 +47,7 @@ int init_game_next(game_t *game, char **av)
     return 0;
 }
 
-int init_game(game_t *game, char **av)
+int init_game(game_t *game)
 {
     game->utils = malloc(sizeof(utils_t));
     game->startmenu = malloc(sizeof(startmenu_t));
@@ -64,7 +64,7 @@ int init_game(game_t *game, char **av)
     game->how_to = malloc(sizeof(howto_t));
     game->death_screen = malloc(sizeof(death_screen_t));
     game->high = NULL;
-    if (init_game_next(game, av) == 1)
+    if (init_game_next(game) == 1)
         return 1;
     return 0;
 }
@@ -74,7 +74,10 @@ int main(int ac, char **av)
     game_t *game = malloc(sizeof(game_t));
     sfVideoMode view_mode = {1920, 1080, 32};
 
-    if (init_game(game, av) == 1)
+    (void)av;
+    if (ac > 1)
+        return 84;
+    if (init_game(game) == 1)
         return 84;
     game->dungeon->all_achiv = 1;
     game->utils->window = sfRenderWindow_create(view_mode, "MY RPG",

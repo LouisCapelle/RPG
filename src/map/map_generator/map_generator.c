@@ -11,7 +11,7 @@
 #include <fcntl.h>
 #include "my.h"
 
-char write_in_file_next(int i, int *j, int random)
+char write_in_file_next(int random)
 {
     if (random == 0)
         return '1';
@@ -30,7 +30,7 @@ char write_in_file(int i, int *j, int random)
         *j += 48;
         return '\n';
     } else
-        return write_in_file_next(i, j, random);
+        return write_in_file_next(random);
     return 0;
 }
 

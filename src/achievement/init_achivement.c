@@ -64,6 +64,9 @@ int init_achivement(achiv_t *achiv)
 {
     achiv->png_talked = false;
     achiv->lvl_complet = false;
+    achiv->kill_comp = false;
+    achiv->gold_comp = false;
+    achiv->keys_comp = false;
     achiv->player_gold = 0;
     achiv->player_keys = 0;
     achiv->player_kills = 0;

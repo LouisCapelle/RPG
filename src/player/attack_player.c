@@ -17,7 +17,7 @@ int enemy_inrange(enemy_t *current, float pos_x, float pos_y)
     return 0;
 }
 
-int create_texture_attack(play_t *play, utils_t *utils)
+int create_texture_attack(play_t *play)
 {
     play->attack->sprite_attack = sfSprite_create();
     play->attack->texture_attack =
