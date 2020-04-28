@@ -9,6 +9,8 @@
 
 int destroy_selection(select_t *select)
 {
+    if (!select)
+        return 84;
     sfTexture_destroy(select->back_text);
     sfSprite_destroy(select->back);
     sfTexture_destroy(select->lvls_text);

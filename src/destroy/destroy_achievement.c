@@ -9,6 +9,8 @@
 
 int destroy_achievement(game_t *game)
 {
+    if (!game)
+        return 84;
     sfText_destroy(game->achiv->not_talked);
     sfText_destroy(game->achiv->killing);
     sfText_destroy(game->achiv->keys);

@@ -9,9 +9,8 @@
 
 int destroy_player_life(game_t *game)
 {
-    sfSprite_destroy(game->play->heart->one);
-    sfSprite_destroy(game->play->heart->two);
-    sfSprite_destroy(game->play->heart->three);
+    if (!game)
+        return 84;
     sfSprite_destroy(game->play->heart->four);
     sfSprite_destroy(game->play->heart->five);
     sfSprite_destroy(game->play->heart->empty_one);
@@ -34,8 +33,13 @@ int destroy_player_life(game_t *game)
 
 int destroy_player(game_t *game)
 {
+    if (!game)
+        return 84;
     sfSprite_destroy(game->play->player);
     sfClock_destroy(game->play->clock);
+    sfSprite_destroy(game->play->heart->one);
+    sfSprite_destroy(game->play->heart->two);
+    sfSprite_destroy(game->play->heart->three);
     destroy_player_life(game);
     return 0;
 }

@@ -9,6 +9,8 @@
 
 int destroy_inventory(inv_t *inv)
 {
+    if (!inv)
+        return 84;
     sfSprite_destroy(inv->back);
     sfTexture_destroy(inv->back_text);
     sfSprite_destroy(inv->case1);

@@ -9,6 +9,8 @@
 
 int destroy_how_to_next(game_t *game)
 {
+    if (!game)
+        return 84;
     sfText_destroy(game->how_to->text_p);
     sfFont_destroy(game->how_to->font_p);
     sfSprite_destroy(game->how_to->p_sprite);
@@ -31,6 +33,7 @@ int destroy_how_to_next(game_t *game)
 
 int destroy_how_to(game_t *game)
 {
+    if (!game) return 84;
     sfSprite_destroy(game->how_to->how_to_sprite);
     sfTexture_destroy(game->how_to->how_to_texture);
     sfSprite_destroy(game->how_to->background_sprite);
