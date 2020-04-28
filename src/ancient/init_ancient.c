@@ -12,6 +12,8 @@ void set_pnj(pnj_t *pnj)
     sfVector2f pos = {330, 200};
     sfVector2f pos2 = {250, 100};
 
+    if (!pnj)
+        return;
     sfSprite_setTexture(pnj->sprite, pnj->texture, sfTrue);
     sfSprite_setTexture(pnj->bulle, pnj->bulle_text, sfTrue);
     sfSprite_setTexture(pnj->sprite_dung, pnj->texture_dung, sfTrue);
@@ -27,6 +29,7 @@ void set_pnj(pnj_t *pnj)
     pnj->is_talking = false;
     pnj->index = 0;
     pnj->dialog = malloc(sizeof(char *) * 7);
+    if (!pnj->dialog) return;
 }
 
 int init_dungeon_ancient(pnj_t *pnj)
@@ -40,6 +43,9 @@ int init_dungeon_ancient(pnj_t *pnj)
     pnj->enter = sfSprite_create();
     pnj->texture_enter = sfTexture_createFromFile("assets/enter_dungeon.png",
                                                                     NULL);
+    if (!pnj->texture_dung || !pnj->sprite_dung || !pnj->not_enough
+    || !pnj->texture_not_enou || !pnj->enter || !pnj->texture_enter)
+        return 84;
     return 0;
 }
 
