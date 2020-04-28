@@ -9,6 +9,8 @@
 
 int player_in_range(pnj_t *pnj, play_t *play)
 {
+    if (!pnj || !play)
+        return 84;
     if ((float)play->x_play > pnj->pos.x - 100 &&
         (float)play->x_play < pnj->pos.x + 100 &&
         (float)play->y_play > pnj->pos.y - 100 &&
@@ -19,6 +21,8 @@ int player_in_range(pnj_t *pnj, play_t *play)
 
 void interactions(utils_t *utils, game_t *game, sfText *interact)
 {
+    if (!utils || !game || !interact)
+        return;
     if (game->pnj->is_talking == true) {
         sfText_setString(interact, "Press N to see more");
         if (game->pnj->dialog[game->pnj->index])
@@ -40,7 +44,7 @@ void do_interaction(utils_t *utils, game_t *game)
     sfText *interact = sfText_create();
     sfVector2f pos = {450, 250};
 
-    if (!interact)
+    if (!interact || !utils || !game)
         return;
     sfText_setFont(interact, game->pnj->font);
     sfText_setPosition(interact, pos);
