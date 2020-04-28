@@ -17,6 +17,8 @@ int init_death(game_t *game)
     init_highlight_death(game);
     game->death_screen->death_text = sfText_create();
     game->death_screen->font = sfFont_createFromFile("./utils/font/horrendo.ttf");
+    game->death_screen->start_texture = sfTexture_createFromFile("./utils/imgs/Play_Again_highlight.png", NULL);
+    game->death_screen->start_texture_highlight = sfTexture_createFromFile("./utils/imgs/Play_Again.png", NULL);
     sfText_setFont(game->death_screen->death_text, game->death_screen->font);
     sfText_setCharacterSize(game->death_screen->death_text, 150);
     sfText_setString(game->death_screen->death_text, "DEAD");
@@ -26,7 +28,7 @@ int init_death(game_t *game)
     sfSprite_setTexture(game->death_screen->quit_sprite,
                         game->startmenu->quit_texture, sfTrue);
     sfSprite_setTexture(game->death_screen->start_sprite,
-                        game->startmenu->start_texture, sfTrue);
+                        game->death_screen->start_texture, sfTrue);
     sfSprite_setPosition(game->death_screen->quit_sprite, pos_2);
     sfSprite_setPosition(game->death_screen->start_sprite, pos_3);
     sfSprite_setScale(game->death_screen->quit_sprite, scale);
