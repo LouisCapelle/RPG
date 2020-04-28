@@ -7,11 +7,6 @@
 
 #include "my.h"
 
-int init_highlight_death(game_t *game)
-{
-
-}
-
 int display_highlight_death(game_t *game)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(game->utils->window);
