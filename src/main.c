@@ -12,6 +12,7 @@ int init_how_to_play(game_t *game)
     init_settings(game);
     init_startmenu(game->startmenu);
     init_pausemenu(game);
+    init_death(game);
     init_text_how_to(game);
     how_to_escape_button(game);
     keybord_key_button(game);

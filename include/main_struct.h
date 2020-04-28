@@ -61,6 +61,7 @@ typedef struct settings_s {
 
 typedef struct death_screen_s {
     sfText *death_text;
+    sfFont *font;
 } death_screen_t;
 
 typedef struct pausemenu_s {
