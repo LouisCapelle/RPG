@@ -9,7 +9,8 @@
 
 int display_quit_highlight(game_t *game)
 {
-    
+    if (!game)
+        return 84;
     return 0;
 }
 

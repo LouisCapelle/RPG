@@ -9,6 +9,16 @@
 #include <unistd.h>
 #include <stdio.h>
 
+void display_game_next(game_t *game)
+{
+    if (game->map->open_map == true)
+            print_minimap(game);
+    if (game->play->attack_number >= 1) {
+        attack_enemis(game->play, game->utils, game->ene);
+        game->play->attack_number = 0;
+    }
+}
+
 void display_game(utils_t *utils, game_t *game,
 sfVector2f player_pos)
 {
@@ -29,12 +39,7 @@ sfVector2f player_pos)
         display_how_to(game);
         display_settings_button(game);
         all_achivs(game->achiv, game->dungeon, game->score);
-        if (game->map->open_map == true)
-            print_minimap(game);
-        if (game->play->attack_number >= 1) {
-            attack_enemis(game->play, game->utils, game->ene);
-            game->play->attack_number = 0;
-        }
+        display_game_next(game);
     }
 }
 
