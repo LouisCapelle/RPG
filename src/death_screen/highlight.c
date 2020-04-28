@@ -9,6 +9,8 @@
 
 int new_game(game_t *game)
 {
+    if (!game)
+        return 84;
     game->utils->death = false;
     game->utils->in_game = true;
     game->play->life = 5;
@@ -20,12 +22,12 @@ int new_game(game_t *game)
     game->achiv->player_keys =0;
     game->achiv->png_talked = false;
     game->achiv->player_kills = 0;
+    return 0;
 }
 
 int display_highlight_death(game_t *game)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(game->utils->window);
-
     if (mouse.x > 711 && mouse.x < 888 && mouse.y > 801 && mouse.y < 895) {
         sfSprite_setTexture(game->death_screen->quit_sprite,
                             game->startmenu->quit_texture_highlight, sfTrue);
@@ -45,4 +47,5 @@ int display_highlight_death(game_t *game)
         sfSprite_setTexture(game->death_screen->start_sprite,
                             game->death_screen->start_texture, sfTrue);
     }
+    return 0;
 }

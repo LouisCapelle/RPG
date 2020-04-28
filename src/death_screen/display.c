@@ -9,6 +9,8 @@
 
 int display_death(game_t *game)
 {
+    if (!game)
+        return 84;
     sfRenderWindow_clear(game->utils->window, sfBlack);
     display_highlight_death(game);
     sfRenderWindow_drawSprite(game->utils->window,

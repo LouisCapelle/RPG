@@ -59,10 +59,9 @@ int init_ancient(pnj_t *pnj)
     pnj->bulle = sfSprite_create();
     pnj->bulle_text = sfTexture_createFromFile("assets/bulle_conv.png", NULL);
     if (!pnj->texture || !pnj->sprite || !pnj->font || !pnj->text
-        || !pnj->bulle || !pnj->bulle_text)
+        || !pnj->bulle || !pnj->bulle_text || init_dungeon_ancient(pnj) == 84)
         return 1;
     pnj->pos = pos;
-    init_dungeon_ancient(pnj);
     set_pnj(pnj);
     pnj->dialog[0] = "Welcome adventurer to your first quest in this world!";
     pnj->dialog[1] = "To complet this quest you will have to:";
