@@ -12,18 +12,18 @@ int init_how_to_play(game_t *game)
     init_settings(game);
     init_startmenu(game->startmenu);
     init_pausemenu(game);
-    if (init_text_how_to(game) == 84
-    || how_to_escape_button(game) == 84
-    || keybord_key_button(game) == 84
-    || key_p_button(game) == 84
-    || keybord_m_text(game) == 84
-    || key_m_button(game) == 84
-    || keybord_a_text(game) == 84
-    || key_a_button(game) == 84
-    || rules_text(game) == 84
-    || rules_one(game) == 84
-    || rules_two(game) == 84)
-        return 84;
+    init_text_how_to(game);
+    how_to_escape_button(game);
+    keybord_key_button(game);
+    key_p_button(game);
+    keybord_m_text(game);
+    key_m_button(game) ;
+    keybord_a_text(game);
+    key_a_button(game);
+    rules_text(game);
+    rules_one(game);
+    rules_two(game);
+    quit_how_to(game);
     return 0;
 }
 

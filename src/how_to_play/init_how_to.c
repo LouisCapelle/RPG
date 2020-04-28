@@ -7,6 +7,19 @@
 
 #include "my.h"
 
+void event_how_to_quit(utils_t *utils)
+{
+    sfVector2i pos = sfMouse_getPositionRenderWindow(utils->window);
+
+    if (utils->event.type == sfEvtMouseButtonPressed &&
+            (pos.x >= 1700 && pos.x <= 1865) &&
+            (pos.y >= 845 && pos.y <= 940)) {
+        utils->in_game = true;
+        utils->in_how_to = false;
+        sfRenderWindow_clear(utils->window, sfBlack);
+    }
+}
+
 void event_how_to(utils_t *utils)
 {
     sfVector2i pos = sfMouse_getPositionRenderWindow(utils->window);

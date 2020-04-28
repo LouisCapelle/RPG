@@ -81,6 +81,7 @@ HOW_TO =	src/how_to_play/init_how_to.c 		\
 			src/how_to_play/key_button.c 		\
 			src/how_to_play/key_button_next.c 	\
 			src/how_to_play/rules.c 			\
+			src/how_to_play/quit_button_how_to.c 	\
 
 SCORE = 	src/score_game/init_score_game.c	\
 			src/score_game/score.c				\
