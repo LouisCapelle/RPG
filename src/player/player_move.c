@@ -8,6 +8,8 @@
 
 int movement_player_y(play_t *play, utils_t *utils, map_t *map)
 {
+    if (!play || !utils || !map)
+        return 84;
     if (utils->event.key.code == sfKeyRight) {
         sfSprite_setRotation(play->player, 90);
         move_rect_up(play);
@@ -30,6 +32,8 @@ int movement_player_y(play_t *play, utils_t *utils, map_t *map)
 
 int movement_player_x(play_t *play, utils_t *utils, map_t *map)
 {
+    if (!play || !utils || !map)
+        return 84;
     if (utils->event.key.code == sfKeyUp) {
         sfSprite_setRotation(play->player, 0);
         move_rect_up(play);
@@ -57,6 +61,8 @@ int player_move(play_t *play, utils_t *utils, map_t *map)
     sfTime time = sfClock_getElapsedTime(play->clock);
     float seconds = time.microseconds / 1000000.0;
 
+    if (!play || !utils || !map)
+        return 84;
     sfSprite_setScale(play->player, scale);
     sfRectangleShape *sfRectangleShape_create(void);
     sfSprite_setTextureRect(play->player, play->rect);

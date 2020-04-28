@@ -9,6 +9,8 @@
 
 int set_texture_heart(play_t *play)
 {
+    if (!play)
+        return 84;
     sfSprite_setTexture(play->heart->one, play->heart->texture_one, sfTrue);
     sfSprite_setTexture(play->heart->two, play->heart->texture_two, sfTrue);
     sfSprite_setTexture(play->heart->three, play->heart->texture_three,
@@ -36,6 +38,8 @@ int set_position_heart(play_t *play)
     sfVector2f pos_four = {1000, 1000};
     sfVector2f pos_five = {1050, 1000};
 
+    if (!play)
+        return 84;
     sfSprite_setPosition(play->heart->one, pos_one);
     sfSprite_setPosition(play->heart->two, pos_two);
     sfSprite_setPosition(play->heart->three, pos_three);
@@ -51,6 +55,8 @@ int set_position_heart(play_t *play)
 
 int create_sprite(play_t *play)
 {
+    if (!play)
+        return 84;
     play->heart->one = sfSprite_create();
     play->heart->two = sfSprite_create();
     play->heart->three = sfSprite_create();
@@ -61,11 +67,18 @@ int create_sprite(play_t *play)
     play->heart->empty_three = sfSprite_create();
     play->heart->empty_four = sfSprite_create();
     play->heart->empty_five = sfSprite_create();
+    if (!play->heart->one || !play->heart->two || !play->heart->three
+    || !play->heart->four || !play->heart->five || !play->heart->empty_one
+    || !play->heart->empty_two || !play->heart->empty_three
+    || !play->heart->empty_four || !play->heart->empty_five)
+        return 84;
     return 0;
 }
 
 int create_texture(play_t *play)
 {
+    if (!play)
+        return 84;
     play->heart->texture_one =
         sfTexture_createFromFile("utils/imgs/heart.png", NULL);
     play->heart->texture_two =
@@ -80,12 +93,8 @@ int create_texture(play_t *play)
         sfTexture_createFromFile("utils/imgs/empty_heart.png", NULL);
     play->heart->empty_texture_two =
         sfTexture_createFromFile("utils/imgs/empty_heart.png", NULL);
-    play->heart->empty_texture_three =
-        sfTexture_createFromFile("utils/imgs/empty_heart.png", NULL);
-    play->heart->empty_texture_four
-        = sfTexture_createFromFile("utils/imgs/empty_heart.png", NULL);
-    play->heart->empty_texture_five
-        = sfTexture_createFromFile("utils/imgs/empty_heart.png", NULL);
+    if (player_life_next(play) == 84)
+        return 84;
     return 0;
 }
 
@@ -94,8 +103,9 @@ int display_heart(play_t *play, utils_t *utils)
     sfVector2f scale = {0.15, 0.15};
     sfVector2f scale_empty = {0.2, 0.2};
 
-    create_sprite(play);
-    create_texture(play);
+    if (create_sprite(play) == 84 || create_texture(play) == 84
+    || !play || !utils)
+        return 84;
     sfSprite_setScale(play->heart->one, scale);
     sfSprite_setScale(play->heart->two, scale);
     sfSprite_setScale(play->heart->three, scale);

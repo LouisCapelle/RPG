@@ -9,6 +9,8 @@
 
 int enemy_inrange(enemy_t *current, float pos_x, float pos_y)
 {
+    if (!current)
+        return 84;
     if (current->pos.x > pos_x - 50 &&
         current->pos.x < pos_x + 50 &&
         current->pos.y > pos_y - 50 &&
@@ -19,9 +21,13 @@ int enemy_inrange(enemy_t *current, float pos_x, float pos_y)
 
 int create_texture_attack(play_t *play)
 {
+    if (!play)
+        return 84;
     play->attack->sprite_attack = sfSprite_create();
     play->attack->texture_attack =
         sfTexture_createFromFile("utils/imgs/attack.png", NULL);
+    if (!play->attack->sprite_attack || !play->attack->texture_attack)
+        return 84;
     sfSprite_setTexture(play->attack->sprite_attack,
     play->attack->texture_attack, sfTrue);
     return 0;

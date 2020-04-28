@@ -74,6 +74,7 @@ PLAYER =	src/player/player_move.c 			\
 			src/player/player_life.c 			\
 			src/player/player_remove_life.c		\
 			src/player/attack_player.c			\
+			src/player/player_life_next.c 		\
 
 HOW_TO =	src/how_to_play/init_how_to.c 		\
 			src/how_to_play/print_how_to.c 		\

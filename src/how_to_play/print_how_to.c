@@ -7,6 +7,27 @@
 
 #include "my.h"
 
+int how_to_escape_button_text(game_t *game)
+{
+    sfVector2f pos_text = {130, 140};
+
+    if (!game)
+        return 84;
+    game->how_to->text_esc = sfText_create();
+    game->how_to->font_esc = sfFont_createFromFile("./utils/font/arial.ttf");
+    if (!game->how_to->text_esc || !game->how_to->font_esc)
+        return 84;
+    sfText_setFont(game->how_to->text_esc, game->how_to->font_esc);
+    sfText_setCharacterSize(game->how_to->text_esc, 30);
+    sfText_setString(game->how_to->text_esc,
+        "If you click on the esc button you can pause the game!");
+    sfText_setPosition(game->how_to->text_esc, pos_text);
+    sfText_setColor(game->how_to->text_esc, sfBlack);
+    if (how_to_escape_button(game) == 84)
+        return 84;
+    return 0;
+}
+
 int init_text_how_to(game_t *game)
 {
     sfVector2f pos = {40, 40};
