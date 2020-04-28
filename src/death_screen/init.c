@@ -14,6 +14,7 @@ int init_death(game_t *game)
     sfVector2f pos_3 = {925, 800};
     sfVector2f scale = {0.7, 0.7};
 
+    init_highlight_death(game);
     game->death_screen->death_text = sfText_create();
     game->death_screen->font = sfFont_createFromFile("./utils/font/horrendo.ttf");
     sfText_setFont(game->death_screen->death_text, game->death_screen->font);

@@ -180,6 +180,8 @@ int print_how_to(game_t *game);
 int init_text_how_to(game_t *game);
 int init_death(game_t *game);
 int display_death(game_t *game);
+int init_highlight_death(game_t *game);
+int display_highlight_death(game_t *game);
 int how_to_escape_button(game_t *game);
 int keybord_key_button(game_t *game);
 int key_p_button(game_t *game);

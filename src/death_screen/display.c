@@ -10,6 +10,7 @@
 int display_death(game_t *game)
 {
     sfRenderWindow_clear(game->utils->window, sfBlack);
+    display_highlight_death(game);
     sfRenderWindow_drawSprite(game->utils->window,
                         game->startmenu->background_sprite, NULL);
     sfRenderWindow_drawText(game->utils->window,
