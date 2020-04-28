@@ -59,8 +59,10 @@ void capture_events(utils_t *utils, game_t *game)
             sfRenderWindow_close(utils->window);
         if (utils->event.type == sfEvtKeyPressed &&
             utils->event.key.code == sfKeyEscape &&
-            utils->in_game == true)
+            utils->in_game == true) {
             utils->in_pause = true;
+            utils->in_game = false;
+        }
         open_mini_map(game);
         player_move(game->play, game->utils, game->map);
         capture_event_next(utils, game);
