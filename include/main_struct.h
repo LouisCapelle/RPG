@@ -131,6 +131,10 @@ typedef struct howto_s {
     sfText *text_rules_first;
     sfFont *font_rules_second;
     sfText *text_rules_second;
+    sfTexture *texture_quit;
+    sfSprite *sprite_quit;
+    sfTexture *texture_quit_highlight;
+    sfSprite *sprite_quit_highlight;
 }howto_t;
 
 #endif /* !MAIN_STRUCT */

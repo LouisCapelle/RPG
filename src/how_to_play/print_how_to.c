@@ -23,8 +23,6 @@ int how_to_escape_button_text(game_t *game)
         "If you click on the esc button you can pause the game!");
     sfText_setPosition(game->how_to->text_esc, pos_text);
     sfText_setColor(game->how_to->text_esc, sfBlack);
-    if (how_to_escape_button(game) == 84)
-        return 84;
     return 0;
 }
 
@@ -55,6 +53,7 @@ int display_background_how_to_next(game_t *game)
         game->how_to->text_rules_first, NULL);
     sfRenderWindow_drawText(game->utils->window,
         game->how_to->text_rules_second, NULL);
+    event_how_to_quit(game->utils);
     return 0;
 }
 
@@ -77,6 +76,8 @@ int display_background_how_to(game_t *game)
     sfRenderWindow_drawText(game->utils->window, game->how_to->text_m, NULL);
     sfRenderWindow_drawSprite(game->utils->window, game->how_to->a_sprite,
                             NULL);
+    sfRenderWindow_drawSprite(game->utils->window, game->how_to->sprite_quit,
+    NULL);
     display_background_how_to_next(game);
     return 0;
 }

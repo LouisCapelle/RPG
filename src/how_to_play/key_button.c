@@ -23,6 +23,8 @@ int how_to_escape_button(game_t *game)
                         game->how_to->esc_texture, sfTrue);
     sfSprite_setScale(game->how_to->esc_sprite, scale);
     sfSprite_setPosition(game->how_to->esc_sprite, pos);
+    if (how_to_escape_button_text(game) == 84)
+        return 84;
     return 0;
 }
 

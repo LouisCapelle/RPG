@@ -194,6 +194,10 @@ int keybord_a_text(game_t *game);
 int rules_two(game_t *game);
 int rules_one(game_t *game);
 int rules_text(game_t *game);
+int quit_how_to(game_t *game);
+int how_to_escape_button_text(game_t *game);
+int quit_how_to_highlight(game_t *game);
+void event_how_to_quit(utils_t *utils);
 
 /*destroy*/
 int destroy_achievement(game_t *game);
@@ -207,5 +211,7 @@ int destroy_selection(select_t *select);
 int destroy_player(game_t *game);
 int destroy_how_to(game_t *game);
 int destroy_inventory(inv_t *inv);
+void free_ene(enemy_t *);
+void free_keys(keys_t *);
 
 #endif /* !PROTO */
