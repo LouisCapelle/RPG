@@ -28,6 +28,8 @@ int init_score_game(game_t *game)
     int_text = my_itoa(game->score->score);
     game->score->live_int = sfText_create();
     game->score->live_text = sfText_create();
+    if (!game->score->live_int || !game->score->live_text)
+        return 84;
     sfText_setPosition(game->score->live_text, pos);
     sfText_setFont(game->score->live_text, game->score->font);
     sfText_setCharacterSize(game->score->live_text, 40);

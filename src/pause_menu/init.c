@@ -9,10 +9,15 @@
 
 int create_sprites_pause(game_t *game)
 {
+    if (!game)
+        return 84;
     game->pausemenu->background_sprite = sfSprite_create();
     game->pausemenu->main_sprite = sfSprite_create();
     game->pausemenu->quit_sprite = sfSprite_create();
     game->pausemenu->start_sprite = sfSprite_create();
+    if (!game->pausemenu->background_sprite || !game->pausemenu->main_sprite
+    || !game->pausemenu->quit_sprite || !game->pausemenu->start_sprite)
+        return 84;
     return 0;
 }
 
@@ -20,6 +25,8 @@ int set_textures_pause(game_t *game)
 {
     game->pausemenu->main_texture = sfTexture_createFromFile
                                 ("./utils/imgs/menu_button.png", NULL);
+    if (!game || !game->pausemenu->main_texture)
+        return 84;
     sfSprite_setTexture(game->pausemenu->main_sprite,
                         game->pausemenu->main_texture, sfTrue);
     sfSprite_setTexture(game->pausemenu->background_sprite,
@@ -39,6 +46,8 @@ int set_positions_pause(game_t *game)
     sfVector2f pos_2 = {830, 680};
     sfVector2f pos_3 = {830, 820};
 
+    if (!game)
+        return 84;
     sfSprite_setScale(game->pausemenu->background_sprite, scale);
     sfSprite_setPosition(game->pausemenu->quit_sprite, pos_1);
     sfSprite_setPosition(game->pausemenu->start_sprite, pos_2);
@@ -51,9 +60,12 @@ int set_positions_pause(game_t *game)
 
 int init_pausemenu(game_t *game)
 {
-    create_sprites_pause(game);
-    create_highlights(game);
-    set_textures_pause(game);
-    set_positions_pause(game);
+    if (!game)
+        return 84;
+    if (create_sprites_pause(game) == 84
+    || create_highlights(game) == 84
+    || set_textures_pause(game) == 84
+    || set_positions_pause(game) == 84)
+        return 84;
     return 0;
 }

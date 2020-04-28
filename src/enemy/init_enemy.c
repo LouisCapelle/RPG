@@ -13,17 +13,15 @@ enemy_t *add_elem(enemy_t *elem)
     sfVector2f offset;
     sfVector2f origin = {225, 127};
 
-    //srand(time(NULL));
     offset.x = rand() % 1650;
     offset.y = rand() % 900;
-    if (!tmp)
-        return NULL;
+    if (!tmp) return NULL;
     tmp->heart = 100;
     tmp->texture = sfTexture_createFromFile("assets/monstre.png", NULL);
     tmp->sprite = sfSprite_create();
     tmp->clock = sfClock_create();
     tmp->pos = offset;
-    if (!tmp->texture || !tmp->sprite)
+    if (!tmp->texture || !tmp->sprite || !tmp->clock)
         return NULL;
     sfSprite_setTexture(tmp->sprite, tmp->texture, sfTrue);
     sfSprite_setPosition(tmp->sprite, tmp->pos);

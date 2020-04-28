@@ -13,6 +13,8 @@ void set_texts_select(select_t *select)
     sfVector2f pos2 = {50, 1000};
     sfVector2f pos3 = {1400, 1000};
 
+    if (!select)
+        return;
     sfText_setFont(select->credits, select->font);
     sfText_setFont(select->version, select->font);
     sfText_setFont(select->welcomming, select->font);
@@ -30,8 +32,21 @@ void set_texts_select(select_t *select)
     sfText_setColor(select->credits, sfBlack);
 }
 
+int select_next(select_t *select)
+{
+    if (!select)
+        return 84;
+    set_texts_select(select);
+    sfSprite_setTexture(select->back, select->back_text, sfTrue);
+    sfSprite_setTexture(select->lvls, select->lvls_text, sfTrue);
+    sfSprite_setTexture(select->hoover, select->hoover_text, sfTrue);
+    return 0;
+}
+
 int init_selection(select_t *select)
 {
+    if (!select)
+        return 1;
     select->back_text = sfTexture_createFromFile(
                         "utils/imgs/background_startmenu.png", NULL);
     select->back = sfSprite_create();
@@ -46,11 +61,8 @@ int init_selection(select_t *select)
     select->hoover_text = sfTexture_createFromFile("assets/hoover.png", NULL);
     if (!select->back_text || !select->back || !select->lvls_text ||
         !select->lvls || !select->font || !select->credits || !select->version
-        || !select->welcomming || !select->hoover || !select->hoover_text)
+        || !select->welcomming || !select->hoover || !select->hoover_text
+        || select_next(select) == 84)
         return 1;
-    set_texts_select(select);
-    sfSprite_setTexture(select->back, select->back_text, sfTrue);
-    sfSprite_setTexture(select->lvls, select->lvls_text, sfTrue);
-    sfSprite_setTexture(select->hoover, select->hoover_text, sfTrue);
     return 0;
 }

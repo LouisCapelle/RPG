@@ -73,6 +73,8 @@ void check_charac(char a, utils_t *utils, game_t *game, sfVector2f pos)
 
 void printing_map_next(game_t *game)
 {
+    if (!game)
+        return;
     if (game->play->col_map == 0 && game->play->line_map == 0) {
         draw_ancient(game->utils, game->pnj);
         do_interaction(game->utils, game);

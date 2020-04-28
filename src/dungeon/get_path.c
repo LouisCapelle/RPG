@@ -11,6 +11,8 @@ int print_dungeon(utils_t *utils, dungeon_t *dungeon)
 {
     sfVector2f dungeon_pos = {0, 0};
 
+    if (!utils || !dungeon)
+        return 84;
     while (dungeon_pos.y < 1080) {
         dungeon_pos.x = 0;
         while (dungeon_pos.x < 1920) {
@@ -28,6 +30,8 @@ int get_path(char **tab, map_t *map)
     int line = 0;
     int col = 0;
 
+    if (!tab || !map)
+        return 84;
     while (tab[line]) {
         if (line > 8 + map->map_pos_line)
             map->map_pos_line += 8;

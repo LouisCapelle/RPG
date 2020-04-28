@@ -9,6 +9,8 @@
 
 int init_dungeon(dungeon_t *dungeon)
 {
+    if (!dungeon)
+        return 84;
     dungeon->text_ground = sfTexture_createFromFile(
                                     "utils/imgs/dungeon_ground.png", NULL);
     dungeon->ground = sfSprite_create();

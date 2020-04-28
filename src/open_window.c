@@ -11,6 +11,8 @@
 
 void display_game_next(game_t *game)
 {
+    if (!game)
+        return;
     if (game->map->open_map == true)
             print_minimap(game);
     if (game->play->attack_number >= 1) {
@@ -22,6 +24,8 @@ void display_game_next(game_t *game)
 void display_game(utils_t *utils, game_t *game,
 sfVector2f player_pos)
 {
+    if (!utils || !game)
+        return;
     if (utils->in_game == true) {
         printing_map(game);
         draw_food(utils, game->food);
@@ -62,6 +66,8 @@ void navigation_controller(utils_t *utils, game_t *game)
     sfVector2f player_pos = {(float)game->play->x_play,
                             (float)game->play->y_play};
 
+    if (!utils || !game)
+        return;
     if (utils->in_start == true)
         display_startmenu(utils, game->startmenu);
     if (utils->lvl_selection == true)
@@ -77,6 +83,8 @@ void navigation_controller(utils_t *utils, game_t *game)
 
 int open_window(utils_t *utils, game_t *game)
 {
+    if (!utils || !game)
+        return 84;
     game->key = NULL;
     game->ene = NULL;
     game->food = NULL;

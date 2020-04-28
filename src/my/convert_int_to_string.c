@@ -25,6 +25,8 @@ char *my_itoa(int nb)
     char *str;
 
     str = malloc(sizeof(char) * len + 1);
+    if (!str)
+        return NULL;
     str[len] = '\0';
     len = len - 1;
     while (len != -1) {

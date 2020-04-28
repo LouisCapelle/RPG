@@ -22,12 +22,11 @@ void selection_events(utils_t *utils)
 
 void display_selection(utils_t *utils, select_t *select)
 {
+    if (!utils || !select)
+        return;
     sfRenderWindow_clear(utils->window, sfBlack);
     selection_events(utils);
     sfRenderWindow_drawSprite(utils->window, select->back, NULL);
-    // if (pos.x > 300 && pos.x < 500 &&
-    //     pos.y > 400 && pos.y < 600)
-    //     sfRenderWindow_drawSprite(utils->window, select->hoover, NULL);
     sfRenderWindow_drawSprite(utils->window, select->lvls, NULL);
     sfRenderWindow_drawText(utils->window, select->welcomming, NULL);
     sfRenderWindow_drawText(utils->window, select->credits, NULL);

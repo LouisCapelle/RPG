@@ -16,7 +16,8 @@ int rules_one(game_t *game)
         sfFont_createFromFile("./utils/font/arial.ttf");
     if (!game->how_to->text_rules_first || !game->how_to->font_rules_first)
         return 84;
-    sfText_setFont(game->how_to->text_rules_first, game->how_to->font_rules_first);
+    sfText_setFont(game->how_to->text_rules_first,
+    game->how_to->font_rules_first);
     sfText_setCharacterSize(game->how_to->text_rules_first, 30);
     sfText_setString(game->how_to->text_rules_first,
     "First, go to speak to the ancient.\
@@ -36,7 +37,8 @@ int rules_two(game_t *game)
         sfFont_createFromFile("./utils/font/arial.ttf");
     if (!game->how_to->text_rules_second || !game->how_to->font_rules_second)
         return 84;
-    sfText_setFont(game->how_to->text_rules_second, game->how_to->font_rules_second);
+    sfText_setFont(game->how_to->text_rules_second,
+    game->how_to->font_rules_second);
     sfText_setCharacterSize(game->how_to->text_rules_second, 30);
     sfText_setString(game->how_to->text_rules_second,
     "In the dungeon you will fight against the final boss!\
