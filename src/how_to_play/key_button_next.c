@@ -11,6 +11,8 @@ int rules_text(game_t *game)
 {
     sfVector2f pos_text = {30, 650};
 
+    if (!game)
+        return 84;
     game->how_to->text_rules = sfText_create();
     game->how_to->font_rules = sfFont_createFromFile("./utils/font/horrendo.ttf");
     if (!game->how_to->text_rules || !game->how_to->font_rules)
@@ -27,6 +29,8 @@ int keybord_a_text(game_t *game)
 {
     sfVector2f pos_text = {130, 530};
 
+    if (!game)
+        return 84;
     game->how_to->text_a = sfText_create();
     game->how_to->font_a = sfFont_createFromFile("./utils/font/arial.ttf");
     if (!game->how_to->text_a || !game->how_to->font_a)
@@ -46,9 +50,13 @@ int key_a_button(game_t *game)
     sfVector2f pos = {30, 520};
     sfVector2f scale = {0.3, 0.3};
 
+    if (!game)
+        return 84;
     game->how_to->a_sprite = sfSprite_create();
     game->how_to->a_texture = sfTexture_createFromFile
                     ("./utils/imgs/a_key.png", NULL);
+    if (!game->how_to->a_sprite || !game->how_to->a_texture)
+        return 84;
     sfSprite_setTexture(game->how_to->a_sprite,
                         game->how_to->a_texture, sfTrue);
     sfSprite_setScale(game->how_to->a_sprite, scale);
@@ -61,6 +69,8 @@ int keybord_m_text(game_t *game)
 {
     sfVector2f pos_text = {130, 430};
 
+    if (!game)
+        return 84;
     game->how_to->text_m = sfText_create();
     game->how_to->font_m = sfFont_createFromFile("./utils/font/arial.ttf");
     if (!game->how_to->text_m || !game->how_to->font_m)
@@ -79,9 +89,13 @@ int key_m_button(game_t *game)
     sfVector2f pos = {30, 420};
     sfVector2f scale = {0.3, 0.3};
 
+    if (!game)
+        return 84;
     game->how_to->m_sprite = sfSprite_create();
     game->how_to->m_texture = sfTexture_createFromFile
                     ("./utils/imgs/m_key.jpeg", NULL);
+    if (!game->how_to->m_sprite || !game->how_to->m_texture)
+        return 84;
     sfSprite_setTexture(game->how_to->m_sprite,
                         game->how_to->m_texture, sfTrue);
     sfSprite_setScale(game->how_to->m_sprite, scale);

@@ -10,25 +10,19 @@
 int how_to_escape_button(game_t *game)
 {
     sfVector2f pos = {30, 130};
-    sfVector2f pos_text = {130, 140};
     sfVector2f scale = {0.3, 0.3};
+
+    if (!game)
+        return 84;
     game->how_to->esc_sprite = sfSprite_create();
     game->how_to->esc_texture = sfTexture_createFromFile
                                     ("./utils/imgs/esc.jpeg", NULL);
+    if (!game->how_to->esc_sprite || !game->how_to->esc_texture)
+        return 84;
     sfSprite_setTexture(game->how_to->esc_sprite,
                         game->how_to->esc_texture, sfTrue);
     sfSprite_setScale(game->how_to->esc_sprite, scale);
     sfSprite_setPosition(game->how_to->esc_sprite, pos);
-    game->how_to->text_esc = sfText_create();
-    game->how_to->font_esc = sfFont_createFromFile("./utils/font/arial.ttf");
-    if (!game->how_to->text_esc || !game->how_to->font_esc)
-        return 84;
-    sfText_setFont(game->how_to->text_esc, game->how_to->font_esc);
-    sfText_setCharacterSize(game->how_to->text_esc, 30);
-    sfText_setString(game->how_to->text_esc,
-        "If you click on the esc button you can pause the game!");
-    sfText_setPosition(game->how_to->text_esc, pos_text);
-    sfText_setColor(game->how_to->text_esc, sfBlack);
     return 0;
 }
 
@@ -36,6 +30,8 @@ int keybord_p_text(game_t *game)
 {
     sfVector2f pos_text = {130, 330};
 
+    if (!game)
+        return 84;
     game->how_to->text_p = sfText_create();
     game->how_to->font_p = sfFont_createFromFile("./utils/font/arial.ttf");
     if (!game->how_to->text_p || !game->how_to->font_p)
@@ -54,14 +50,19 @@ int key_p_button(game_t *game)
     sfVector2f pos = {30, 320};
     sfVector2f scale = {0.3, 0.3};
 
+    if (!game)
+        return 84;
     game->how_to->p_sprite = sfSprite_create();
     game->how_to->p_texture = sfTexture_createFromFile
                     ("./utils/imgs/p_key.jpeg", NULL);
+    if (!game->how_to->p_sprite || !game->how_to->p_texture)
+        return 84;
     sfSprite_setTexture(game->how_to->p_sprite,
                         game->how_to->p_texture, sfTrue);
     sfSprite_setScale(game->how_to->p_sprite, scale);
     sfSprite_setPosition(game->how_to->p_sprite, pos);
-    keybord_p_text(game);
+    if (keybord_p_text(game) == 84)
+        return 84;
     return 0;
 }
 
@@ -69,6 +70,8 @@ int keybord_key_text(game_t *game)
 {
     sfVector2f pos_text = {130, 240};
 
+    if (!game)
+        return 84;
     game->how_to->text_key = sfText_create();
     game->how_to->font_key = sfFont_createFromFile("./utils/font/arial.ttf");
     if (!game->how_to->text_key || !game->how_to->font_key)
@@ -88,13 +91,18 @@ int keybord_key_button(game_t *game)
     sfVector2f pos = {30, 220};
     sfVector2f scale = {0.3, 0.3};
 
+    if (!game)
+        return 84;
     game->how_to->key_sprite = sfSprite_create();
     game->how_to->key_texture = sfTexture_createFromFile
                     ("./utils/imgs/keybord_key.jpeg", NULL);
+    if (!game->how_to->key_sprite || !game->how_to->key_texture)
+        return 84;
     sfSprite_setTexture(game->how_to->key_sprite,
                         game->how_to->key_texture, sfTrue);
     sfSprite_setScale(game->how_to->key_sprite, scale);
     sfSprite_setPosition(game->how_to->key_sprite, pos);
-    keybord_key_text(game);
+    if (keybord_key_text(game) == 84)
+        return 84;
     return 0;
 }

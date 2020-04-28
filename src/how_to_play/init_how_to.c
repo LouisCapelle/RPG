@@ -22,6 +22,8 @@ void event_how_to(utils_t *utils)
 
 int display_how_to(game_t *game)
 {
+    if (!game)
+        return 84;
     event_how_to(game->utils);
     sfRenderWindow_drawSprite(game->utils->window,
                             game->how_to->how_to_sprite, NULL);
@@ -33,12 +35,17 @@ int init_how_to(howto_t *how_to)
     sfVector2f pos = {1700, 35};
     sfVector2f scale = {0.2, 0.2};
 
+    if (!how_to)
+        return 84;
     how_to->how_to_sprite = sfSprite_create();
     how_to->how_to_texture = sfTexture_createFromFile
                                     ("./utils/imgs/book.png", NULL);
     how_to->background_sprite = sfSprite_create();
     how_to->background_texture =
         sfTexture_createFromFile("./utils/imgs/white.png", NULL);
+    if (!how_to->how_to_sprite || !how_to->how_to_texture
+    || !how_to->background_sprite || !how_to->background_texture)
+        return 84;
     sfSprite_setTexture(how_to->how_to_sprite,
                         how_to->how_to_texture, sfTrue);
     sfSprite_setTexture(how_to->background_sprite,
