@@ -61,6 +61,11 @@ typedef struct settings_s {
 
 typedef struct death_screen_s {
     sfText *death_text;
+    sfFont *font;
+    sfSprite *quit_sprite;
+    sfSprite *start_sprite;
+    sfTexture *start_texture;
+    sfTexture *start_texture_highlight;
 } death_screen_t;
 
 typedef struct pausemenu_s {

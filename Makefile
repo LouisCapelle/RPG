@@ -111,6 +111,7 @@ SRCS	= 	src/main.c 							\
 			src/settings/sound.c           		\
 			src/death_screen/display.c 			\
 			src/death_screen/init.c 			\
+			src/death_screen/highlight.c 		\
 			$(MAP)								\
 			$(ENEMY)							\
 			$(MY)								\

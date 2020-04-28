@@ -24,6 +24,7 @@ int init_how_to_play(game_t *game)
     rules_one(game);
     rules_two(game);
     quit_how_to(game);
+    init_death(game);
     return 0;
 }
 
