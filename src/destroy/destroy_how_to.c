@@ -26,7 +26,6 @@ int destroy_how_to_next(game_t *game)
     sfSprite_destroy(game->how_to->sprite_quit_highlight);
     sfTexture_destroy(game->how_to->texture_quit);
     sfSprite_destroy(game->how_to->sprite_quit);
-    sfTexture_destroy(game->how_to->texture_quit);
     return 0;
 }
 
