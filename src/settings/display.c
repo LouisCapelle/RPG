@@ -7,6 +7,14 @@
 
 #include "my.h"
 
+int event_settings_escape(game_t *game)
+{
+    if (game->utils->event.key.code == sfKeyEscape) {
+        game->utils->in_settings = false;
+        game->utils->in_game = true;
+    }
+}
+
 int highlight_settings_button(game_t *game)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(game->utils->window);
@@ -31,6 +39,7 @@ int display_settings(game_t *game)
     sfRenderWindow_drawSprite(game->utils->window,
                         game->settings->circle_sprite, NULL);
     event_sound_bar(game);
+    event_settings_escape(game);
     return 0;
 }
 
