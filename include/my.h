@@ -212,5 +212,7 @@ int destroy_selection(select_t *select);
 int destroy_player(game_t *game);
 int destroy_how_to(game_t *game);
 int destroy_inventory(inv_t *inv);
+void free_ene(enemy_t *);
+void free_keys(keys_t *);
 
 #endif /* !PROTO */

@@ -37,6 +37,8 @@ int free_struct(game_t *game)
 int destroy_all(game_t *game)
 {
     destroy_achievement(game);
+    free_ene(game->ene);
+    free_keys(game->key);
     destroy_ancient(game);
     destroy_menu(game);
     destroy_player(game);
