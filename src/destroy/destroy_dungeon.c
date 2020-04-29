@@ -9,6 +9,8 @@
 
 int destroy_map(map_t *map)
 {
+    if (!map)
+        return 84;
     sfSprite_destroy(map->mini_map);
     sfSprite_destroy(map->mini_grass);
     sfSprite_destroy(map->mini_soil);
@@ -24,6 +26,8 @@ int destroy_map(map_t *map)
 
 int destroy_dungeon(game_t *game)
 {
+    if (!game)
+        return 84;
     sfTexture_destroy(game->dungeon->text_ground);
     sfSprite_destroy(game->dungeon->ground);
     sfSprite_destroy(game->map->mini_stairs);

@@ -37,6 +37,8 @@ int display_death(game_t *game)
 {
     char *score = convert_to_string(game->score->score);
 
+    if (!game)
+        return 84;
     sfRenderWindow_clear(game->utils->window, sfBlack);
     display_highlight_death(game);
     sfRenderWindow_drawSprite(game->utils->window,

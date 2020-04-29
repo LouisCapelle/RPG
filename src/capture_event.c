@@ -9,6 +9,8 @@
 
 int dungeon_pos(play_t *play, map_t *map)
 {
+    if (!play || !map)
+        return 84;
     if (map->map_pos_col == play->col_map &&
         map->map_pos_line == play->line_map &&
         play->x_play >= 590 && play->x_play <= 1185 &&
@@ -19,6 +21,8 @@ int dungeon_pos(play_t *play, map_t *map)
 
 void open_mini_map(game_t *game)
 {
+    if (!game)
+        return;
     if (game->utils->event.key.code == sfKeyM &&
         game->map->open_map == false &&
         game->map->wait_for_it > 2) {
@@ -40,7 +44,7 @@ void capture_event_next(utils_t *utils, game_t *game)
         && game->pnj->is_talking == false)
         game->pnj->is_talking = true;
     if (utils->event.type == sfEvtKeyPressed
-    && utils->event.key.code == sfKeyP)
+        && utils->event.key.code == sfKeyP)
         game->play->attack_number += 1;
     if (utils->event.type == sfEvtKeyPressed &&
         utils->event.key.code == sfKeyN && game->pnj->is_talking == true)
@@ -59,8 +63,10 @@ void capture_events(utils_t *utils, game_t *game)
             sfRenderWindow_close(utils->window);
         if (utils->event.type == sfEvtKeyPressed &&
             utils->event.key.code == sfKeyEscape &&
-            utils->in_game == true)
+            utils->in_game == true) {
             utils->in_pause = true;
+            utils->in_game = false;
+        }
         open_mini_map(game);
         player_move(game->play, game->utils, game->map);
         capture_event_next(utils, game);

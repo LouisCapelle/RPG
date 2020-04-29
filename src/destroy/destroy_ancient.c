@@ -9,6 +9,8 @@
 
 int destroy_ancient(game_t *game)
 {
+    if (!game)
+        return 84;
     sfTexture_destroy(game->pnj->texture);
     sfSprite_destroy(game->pnj->sprite);
     sfFont_destroy(game->pnj->font);

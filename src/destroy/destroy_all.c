@@ -9,6 +9,8 @@
 
 int destroy_score(game_t *game)
 {
+    if (!game)
+        return 84;
     sfFont_destroy(game->score->font);
     sfText_destroy(game->score->live_int);
     sfText_destroy(game->score->live_text);
@@ -17,6 +19,8 @@ int destroy_score(game_t *game)
 
 int free_struct(game_t *game)
 {
+    if (!game)
+        return 84;
     free(game->play->attack);
     free(game->play->heart);
     free(game->how_to);
@@ -36,6 +40,8 @@ int free_struct(game_t *game)
 
 int destroy_all(game_t *game)
 {
+    if (!game)
+        return 84;
     destroy_achievement(game);
     free_ene(game->ene);
     free_keys(game->key);

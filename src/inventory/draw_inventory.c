@@ -9,9 +9,10 @@
 
 void draw_inventory(utils_t *utils, inv_t *inv, achiv_t *achiv)
 {
+    if (!utils || !inv || !achiv)
+        return;
     sfText_setString(inv->keys, convert_to_string(achiv->player_keys));
     sfText_setString(inv->gold, convert_to_string(achiv->player_gold));
-
     sfRenderWindow_drawSprite(utils->window, inv->back, NULL);
     sfRenderWindow_drawSprite(utils->window, inv->case2, NULL);
     sfRenderWindow_drawSprite(utils->window, inv->case1, NULL);

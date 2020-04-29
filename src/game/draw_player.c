@@ -22,6 +22,8 @@ void draw_player(play_t *play, utils_t *utils, game_t *game)
 {
     sfVector2f player_pos = {play->x_play, play->y_play};
 
+    if (!play || !utils || !game)
+        return;
     if (game->achiv->player_keys >= 3 && game->achiv->player_gold >= 30)
         game->dungeon->all_achiv = 1;
     sfSprite_setPosition(play->player, player_pos);

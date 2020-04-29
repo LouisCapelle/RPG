@@ -62,6 +62,8 @@ void init_txt(achiv_t *achiv)
 
 int init_achivement(achiv_t *achiv)
 {
+    if (!achiv)
+        return 84;
     achiv->png_talked = false;
     achiv->lvl_complet = false;
     achiv->kill_comp = false;

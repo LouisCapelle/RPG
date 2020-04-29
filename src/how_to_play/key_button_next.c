@@ -14,7 +14,8 @@ int rules_text(game_t *game)
     if (!game)
         return 84;
     game->how_to->text_rules = sfText_create();
-    game->how_to->font_rules = sfFont_createFromFile("./utils/font/horrendo.ttf");
+    game->how_to->font_rules =
+    sfFont_createFromFile("./utils/font/horrendo.ttf");
     if (!game->how_to->text_rules || !game->how_to->font_rules)
         return 84;
     sfText_setFont(game->how_to->text_rules, game->how_to->font_rules);

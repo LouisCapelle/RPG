@@ -12,6 +12,8 @@ void set_txt(inv_t *inv)
     sfVector2f pos = {150, 1000};
     sfVector2f pos2 = {290, 1000};
 
+    if (!inv)
+        return;
     sfText_setFont(inv->gold, inv->font);
     sfText_setCharacterSize(inv->gold, 30);
     sfText_setPosition(inv->gold, pos);
@@ -31,6 +33,8 @@ void set_inv(inv_t *inv)
     sfVector2f pos5 = {230, 950};
     sfVector2f scale = {1.2, 2};
 
+    if (!inv)
+        return;
     sfSprite_setTexture(inv->back, inv->back_text, sfTrue);
     sfSprite_setPosition(inv->back, pos);
     sfSprite_setScale(inv->back, scale);
@@ -46,6 +50,8 @@ void set_inv(inv_t *inv)
 
 int init_inventory(inv_t *inv)
 {
+    if (!inv)
+        return 1;
     inv->back = sfSprite_create();
     inv->back_text = sfTexture_createFromFile("assets/hudlayout.png", NULL);
     inv->case1 = sfSprite_create();

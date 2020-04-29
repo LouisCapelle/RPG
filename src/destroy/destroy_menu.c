@@ -9,6 +9,8 @@
 
 int destroy_button(startmenu_t *startmenu)
 {
+    if (!startmenu)
+        return 84;
     sfSprite_destroy(startmenu->quit_sprite);
     sfSprite_destroy(startmenu->start_sprite);
     sfTexture_destroy(startmenu->quit_texture);
@@ -20,6 +22,8 @@ int destroy_button(startmenu_t *startmenu)
 
 int destroy_menu(game_t *game)
 {
+    if (!game)
+        return 84;
     sfTexture_destroy(game->pausemenu->main_texture);
     sfSprite_destroy(game->pausemenu->background_sprite);
     sfSprite_destroy(game->pausemenu->main_sprite);

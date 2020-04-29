@@ -12,6 +12,8 @@ void not_talked(utils_t *utils, achiv_t *achiv)
     sfVector2f txt_pos = {50, 50};
     sfVector2f scale = {1.6, 0.7};
 
+    if (!utils || !achiv)
+        return;
     sfSprite_setScale(achiv->back, scale);
     sfText_setPosition(achiv->not_talked, txt_pos);
     sfRenderWindow_drawSprite(utils->window, achiv->back, NULL);
@@ -20,6 +22,8 @@ void not_talked(utils_t *utils, achiv_t *achiv)
 
 void draw_talked(utils_t *utils, achiv_t *achiv)
 {
+    if (!utils || !achiv)
+        return;
     sfRenderWindow_drawSprite(utils->window, achiv->back, NULL);
     sfRenderWindow_drawText(utils->window, achiv->killing, NULL);
     sfRenderWindow_drawText(utils->window, achiv->keys, NULL);
@@ -33,6 +37,8 @@ void check_last_indic(utils_t *utils, achiv_t *achiv)
 {
     sfVector2f pos3 = {300, 160};
 
+    if (!utils || !achiv)
+        return;
     if (achiv->player_gold >= 30) {
         sfSprite_setPosition(achiv->tick, pos3);
         sfRenderWindow_drawSprite(utils->window, achiv->tick, NULL);
@@ -52,6 +58,7 @@ void talked(utils_t *utils, achiv_t *achiv)
     sfVector2f p_gold_pos = {200, 150};
     sfVector2f scale = {1.2, 1.2};
 
+    if (!utils || !achiv) return;
     sfText_setPosition(achiv->killing, kill_pos);
     sfText_setPosition(achiv->keys, key_pos);
     sfText_setPosition(achiv->golds, gold_pos);
@@ -68,6 +75,8 @@ void talked(utils_t *utils, achiv_t *achiv)
 
 void draw_achivement(utils_t *utils, achiv_t *achiv)
 {
+    if (!utils || !achiv)
+        return;
     if (achiv->png_talked == false)
         not_talked(utils, achiv);
     else

@@ -11,6 +11,8 @@ void event_settings(utils_t *utils)
 {
     sfVector2i pos = sfMouse_getPositionRenderWindow(utils->window);
 
+    if (!utils)
+        return;
     if (utils->event.type == sfEvtMouseButtonPressed &&
             (pos.x >= 1816 && pos.x <= 1869) &&
             (pos.y >= 35 && pos.y <= 90)) {
@@ -26,12 +28,17 @@ int init_settings_next(game_t *game)
     sfVector2f scale_2 = {0.9, 0.9};
     sfVector2f scale_3 = {0.1, 0.1};
 
+    if (!game)
+        return 84;
     sfSprite_setScale(game->settings->bar_sprite, scale_2);
     sfSprite_setScale(game->settings->circle_sprite, scale_3);
     game->settings->settings_texture = sfTexture_createFromFile
                                     ("./utils/imgs/settings.png", NULL);
     game->settings->settings_texture_highlight = sfTexture_createFromFile
-                                    ("./utils/imgs/settings_highlight.png", NULL);
+                            ("./utils/imgs/settings_highlight.png", NULL);
+    if (!game->settings->settings_texture
+    || !game->settings->settings_texture_highlight)
+        return 84;
     sfSprite_setTexture(game->settings->settings_sprite,
                         game->settings->settings_texture, sfTrue);
     sfSprite_setTexture(game->settings->circle_sprite,
@@ -53,7 +60,10 @@ int init_settings(game_t *game)
                             ("./utils/imgs/sound_bar.png", NULL);
     game->settings->circle_texture = sfTexture_createFromFile
                             ("./utils/imgs/circle.png", NULL);
-    init_settings_next(game);
+    if (!game->settings->settings_sprite || !game->settings->bar_sprite
+    || !game->settings->circle_sprite || !game->settings->bar_texture
+    || !game->settings->circle_texture || init_settings_next(game) == 84)
+        return 84;
     sfSprite_setTexture(game->settings->bar_sprite,
                         game->settings->bar_texture, sfTrue);
     sfSprite_setPosition(game->settings->bar_sprite, pos_2);
