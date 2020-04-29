@@ -46,7 +46,7 @@ void display_selection(utils_t *, select_t *);
 int init_selection(select_t *);
 
 /* HIGHSCORE */
-int get_high_scores(high_t *);
+high_t *get_high_scores(high_t *);
 int add_new_score(high_t *, char const *);
 int is_highscore(high_t *, char const *);
 

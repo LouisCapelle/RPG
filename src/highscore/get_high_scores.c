@@ -35,7 +35,7 @@ high_t *add_score(high_t *high, char const *line, int count)
     return tmp;
 }
 
-int get_high_scores(high_t *high)
+high_t *get_high_scores(high_t *high)
 {
     char *line = NULL;
     size_t n = 0;
@@ -43,12 +43,12 @@ int get_high_scores(high_t *high)
     FILE *stream = fopen("Highscores.txt", "r");
 
     if (!stream)
-        return 1;
+        return NULL;
     while (getline(&line, &n, stream) != -1) {
         high = add_score(high, line, count);
         count++;
     }
     my_rev_list(&high);
     fclose(stream);
-    return 0;
+    return high;
 }

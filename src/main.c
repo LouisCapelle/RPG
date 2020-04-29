@@ -38,10 +38,11 @@ int init_game_next(game_t *game)
     if (init_achivement(game->achiv) || init_map(game->map) ||
         init_gameplay(game->play) || init_inventory(game->inv) ||
         init_ancient(game->pnj) || init_selection(game->select)
-        || score(game) || get_high_scores(game->high) ||
+        || score(game) ||
         init_dungeon(game->dungeon) || init_how_to(game->how_to))
         return 1;
     create_texture_attack(game->play);
+    game->high = get_high_scores(game->high);
     game->utils->in_start = true;
     game->utils->width = 1920;
     game->utils->height = 1080;

@@ -66,6 +66,8 @@ typedef struct death_screen_s {
     sfSprite *start_sprite;
     sfTexture *start_texture;
     sfTexture *start_texture_highlight;
+    sfText *high_text;
+    sfText *score;
 } death_screen_t;
 
 typedef struct pausemenu_s {

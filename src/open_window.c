@@ -53,8 +53,10 @@ sfVector2f player_pos)
         display_settings(game);
     if (game->utils->in_how_to == true)
         display_background_how_to(game);
-    if (utils->death)
+    if (utils->death) {
+        add_new_score(game->high, convert_to_string(game->score->score));
         display_death(game);
+    }
 }
 
 void navigation_controller(utils_t *utils, game_t *game)

@@ -31,12 +31,20 @@ int init_death(game_t *game)
 
     init_death_next(game);
     game->death_screen->death_text = sfText_create();
+    game->death_screen->high_text = sfText_create();
+    game->death_screen->score = sfText_create();
     game->death_screen->font = sfFont_createFromFile("./utils/font/horrendo.ttf");
     game->death_screen->start_texture = sfTexture_createFromFile("./utils/imgs/Play_Again_highlight.png", NULL);
     game->death_screen->start_texture_highlight = sfTexture_createFromFile("./utils/imgs/Play_Again.png", NULL);
     sfText_setFont(game->death_screen->death_text, game->death_screen->font);
     sfText_setCharacterSize(game->death_screen->death_text, 150);
+    sfText_setFont(game->death_screen->high_text, game->death_screen->font);
+    sfText_setCharacterSize(game->death_screen->high_text, 100);
+    sfText_setFont(game->death_screen->score, game->death_screen->font);
+    sfText_setCharacterSize(game->death_screen->score, 100);
     sfText_setString(game->death_screen->death_text, "DEAD");
     sfText_setPosition(game->death_screen->death_text, pos);
+    sfText_setColor(game->death_screen->high_text, sfBlack);
+    sfText_setColor(game->death_screen->score, sfBlack);
     return 0;
 }

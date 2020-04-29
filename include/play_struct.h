@@ -17,7 +17,7 @@
 
 typedef struct score_s {
     sfVector2f pos;
-    float score;
+    int score;
     sfIntRect rect;
     sfText *live_text;
     sfText *live_int;
