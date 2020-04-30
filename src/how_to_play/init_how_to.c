@@ -14,12 +14,11 @@ void event_how_to_quit(utils_t *utils)
     if (utils->event.type == sfEvtMouseButtonPressed &&
             (pos.x >= 1700 && pos.x <= 1865) &&
             (pos.y >= 845 && pos.y <= 940)) {
-        if (utils->back_to_start == true)
-            utils->in_start = true; 
-        else 
+        if (utils->back_to_start == true) {
+            utils->in_start = true;
+            utils->back_to_start = false;
+        } else 
             utils->in_game = true;
-        utils->in_how_to = false;
-        utils->in_game = true;
         if (utils->in_how_to == 1)
             utils->in_how_to = false;
         if (utils->in_settings == 1)
@@ -35,7 +34,11 @@ void event_how_to(utils_t *utils)
     if (utils->event.type == sfEvtMouseButtonPressed &&
             (pos.x >= 1716 && pos.x <= 1769) &&
             (pos.y >= 45 && pos.y <= 100)) {
-        utils->in_game = false;
+        if (utils->in_start == true) {
+            utils->back_to_start = true;
+            utils->in_start = false;
+        } else 
+            utils->in_game = false;
         utils->in_how_to = true;
         sfRenderWindow_clear(utils->window, sfBlack);
     }
