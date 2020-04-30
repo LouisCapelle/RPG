@@ -14,7 +14,10 @@ void event_how_to_quit(utils_t *utils)
     if (utils->event.type == sfEvtMouseButtonPressed &&
             (pos.x >= 1700 && pos.x <= 1865) &&
             (pos.y >= 845 && pos.y <= 940)) {
-        utils->in_game = true;
+        if (utils->back_to_start == true)
+            utils->in_start = true; 
+        else 
+            utils->in_game = true;
         utils->in_how_to = false;
         sfRenderWindow_clear(utils->window, sfBlack);
     }

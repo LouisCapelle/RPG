@@ -96,6 +96,7 @@ typedef struct utils_s {
     bool lvl_selection;
     bool in_how_to;
     bool in_dungeon;
+    bool back_to_start;
     sfMusic *back_music;
     int heart;
     float width;
