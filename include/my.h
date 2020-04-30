@@ -204,6 +204,7 @@ int quit_how_to(game_t *game);
 int how_to_escape_button_text(game_t *game);
 int quit_how_to_highlight(game_t *game);
 void event_how_to_quit(utils_t *utils);
+void event_how_to(utils_t *utils);
 
 /*destroy*/
 int destroy_achievement(game_t *game);

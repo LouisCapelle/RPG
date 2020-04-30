@@ -15,6 +15,7 @@ int event_settings_escape(game_t *game)
         game->utils->in_settings = false;
         game->utils->in_game = true;
     }
+    //return 0;
 }
 
 int highlight_settings_button(game_t *game)
@@ -45,9 +46,12 @@ int display_settings(game_t *game)
                         game->settings->bar_sprite, NULL);
     sfRenderWindow_drawSprite(game->utils->window,
                         game->settings->circle_sprite, NULL);
+    sfRenderWindow_drawSprite(game->utils->window,
+                        game->how_to->sprite_quit, NULL);
     sfRenderWindow_drawText(game->utils->window,
                             game->settings->title_text, NULL);
     event_sound_bar(game);
+    event_how_to_quit(game->utils);
     if (event_settings_escape(game) == 84)
         return 84;
     return 0;

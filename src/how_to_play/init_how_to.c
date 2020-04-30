@@ -15,7 +15,10 @@ void event_how_to_quit(utils_t *utils)
             (pos.x >= 1700 && pos.x <= 1865) &&
             (pos.y >= 845 && pos.y <= 940)) {
         utils->in_game = true;
-        utils->in_how_to = false;
+        if (utils->in_how_to == 1)
+            utils->in_how_to = false;
+        if (utils->in_settings == 1)
+            utils->in_settings = false;
         sfRenderWindow_clear(utils->window, sfBlack);
     }
 }
