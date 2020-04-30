@@ -70,8 +70,11 @@ void navigation_controller(utils_t *utils, game_t *game)
 
     if (!utils || !game)
         return;
-    if (utils->in_start == true)
+    if (utils->in_start == true) {
         display_startmenu(utils, game->startmenu);
+        display_how_to(game);
+        display_settings_button(game);
+    }
     if (utils->lvl_selection == true)
         display_selection(utils, game->select);
     if (utils->in_dungeon == true) {
@@ -101,6 +104,5 @@ int open_window(utils_t *utils, game_t *game)
         sfRenderWindow_display(utils->window);
         sfRenderWindow_clear(utils->window, sfBlack);
     }
-    destroy_all(game);
     return 0;
 }

@@ -79,6 +79,8 @@ typedef struct pausemenu_s {
     sfTexture *start_texture_highlight;
     sfTexture *quit_texture_highlight;
     sfTexture *main_texture_highlight;
+    sfFont *title_font;
+    sfText *title_text;
 } pausemenu_t;
 
 typedef struct utils_s {

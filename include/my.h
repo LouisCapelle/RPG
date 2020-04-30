@@ -79,9 +79,13 @@ int init_pausemenu(game_t *game);
 int display_pausemenu(game_t *game);
 int create_highlights(game_t *game);
 int display_highlight(game_t *game);
-int display_highlight_start_pause(pausemenu_t *pausemenu, sfVector2i pos, startmenu_t *startmenu);
-int display_highlight_quit_pause(pausemenu_t *pausemenu, sfVector2i pos, startmenu_t *startmenu);
-int display_highlight_main_pause(pausemenu_t *pausemenu, sfVector2i pos, startmenu_t *startmenu);
+int display_highlight_start_pause(pausemenu_t *pausemenu, sfVector2i pos,
+startmenu_t *startmenu);
+int display_highlight_quit_pause(pausemenu_t *pausemenu, sfVector2i pos,
+startmenu_t *startmenu);
+int display_highlight_main_pause(pausemenu_t *pausemenu, sfVector2i pos,
+startmenu_t *startmenu);
+int init_text_pause(pausemenu_t *pausemenu);
 
 /* ACHIVEMENTS */
 void draw_achivement(utils_t *, achiv_t *);

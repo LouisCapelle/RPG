@@ -87,5 +87,7 @@ int main(int ac, char **av)
                     sfClose, NULL);
     sfRenderWindow_setFramerateLimit(game->utils->window, 30);
     open_window(game->utils, game);
+    if (game->utils->in_game == 1)
+        destroy_all(game);
     return 0;
 }

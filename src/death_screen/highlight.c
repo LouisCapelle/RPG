@@ -17,9 +17,9 @@ int new_game(game_t *game)
     game->achiv->gold_comp = false;
     game->achiv->keys_comp = false;
     game->achiv->kill_comp = false;
-    game->achiv->lvl_complet =false;
+    game->achiv->lvl_complet = false;
     game->achiv->player_gold = 0;
-    game->achiv->player_keys =0;
+    game->achiv->player_keys = 0;
     game->achiv->png_talked = false;
     game->achiv->player_kills = 0;
     return 0;

@@ -65,7 +65,8 @@ int init_pausemenu(game_t *game)
     if (create_sprites_pause(game) == 84
     || create_highlights(game) == 84
     || set_textures_pause(game) == 84
-    || set_positions_pause(game) == 84)
+    || set_positions_pause(game) == 84
+    || init_text_pause(game->pausemenu) ==  84)
         return 84;
     return 0;
 }

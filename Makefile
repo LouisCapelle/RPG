@@ -98,10 +98,7 @@ DESTROY = 	src/destroy/destroy_achievement.c 	\
 			src/destroy/free_enemy.c 			\
 			src/destroy/free_keys.c 			\
 
-SRCS	= 	src/main.c 							\
-			src/open_window.c 					\
-			src/capture_event.c 				\
-			src/start_menu/display.c 			\
+MENU =		src/start_menu/display.c 			\
 			src/start_menu/highlight.c          \
 			src/start_menu/init.c               \
 			src/pause_menu/display.c 			\
@@ -114,6 +111,11 @@ SRCS	= 	src/main.c 							\
 			src/death_screen/display.c 			\
 			src/death_screen/init.c 			\
 			src/death_screen/highlight.c 		\
+			src/pause_menu/init_text.c 			\
+
+SRCS	= 	src/main.c 							\
+			src/open_window.c 					\
+			src/capture_event.c 				\
 			$(MAP)								\
 			$(ENEMY)							\
 			$(MY)								\
@@ -130,6 +132,7 @@ SRCS	= 	src/main.c 							\
 			$(FOOD) 							\
 			$(HOW_TO)							\
 			$(DESTROY)							\
+			$(MENU)								\
 
 OBJS	= $(SRCS:.c=.o)
 
