@@ -25,7 +25,6 @@ int destroy_how_to_next(game_t *game)
     sfFont_destroy(game->how_to->font_rules_first);
     sfText_destroy(game->how_to->text_rules_second);
     sfFont_destroy(game->how_to->font_rules_second);
-    sfSprite_destroy(game->how_to->sprite_quit_highlight);
     sfTexture_destroy(game->how_to->texture_quit);
     sfSprite_destroy(game->how_to->sprite_quit);
     return 0;

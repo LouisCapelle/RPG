@@ -19,6 +19,11 @@ void event_how_to_quit(utils_t *utils)
         else 
             utils->in_game = true;
         utils->in_how_to = false;
+        utils->in_game = true;
+        if (utils->in_how_to == 1)
+            utils->in_how_to = false;
+        if (utils->in_settings == 1)
+            utils->in_settings = false;
         sfRenderWindow_clear(utils->window, sfBlack);
     }
 }
