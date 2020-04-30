@@ -112,6 +112,7 @@ MENU =		src/start_menu/display.c 			\
 			src/death_screen/init.c 			\
 			src/death_screen/highlight.c 		\
 			src/pause_menu/init_text.c 			\
+			src/settings/init_text_setting.c 	\
 
 SRCS	= 	src/main.c 							\
 			src/open_window.c 					\

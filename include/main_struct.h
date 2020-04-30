@@ -57,6 +57,8 @@ typedef struct settings_s {
     sfTexture *circle_texture;
     sfTexture *bar_texture;
     bool is_dragging;
+    sfFont *title_font;
+    sfText *title_text;
 } settings_t;
 
 typedef struct death_screen_s {

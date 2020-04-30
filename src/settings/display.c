@@ -45,6 +45,8 @@ int display_settings(game_t *game)
                         game->settings->bar_sprite, NULL);
     sfRenderWindow_drawSprite(game->utils->window,
                         game->settings->circle_sprite, NULL);
+    sfRenderWindow_drawText(game->utils->window,
+                            game->settings->title_text, NULL);
     event_sound_bar(game);
     if (event_settings_escape(game) == 84)
         return 84;

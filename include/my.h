@@ -175,6 +175,7 @@ int highlight_settings_button(game_t *game);
 int display_settings(game_t *game);
 int display_settings_button(game_t *game);
 int modify_sound(game_t *game);
+int init_text_setting(settings_t *settings);
 
 /*how_to*/
 int init_how_to(howto_t *how_to);
