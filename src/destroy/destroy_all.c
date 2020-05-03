@@ -14,6 +14,7 @@ int destroy_score(game_t *game)
     sfFont_destroy(game->score->font);
     sfText_destroy(game->score->live_int);
     sfText_destroy(game->score->live_text);
+    sfMusic_destroy(game->utils->back_music);
     return 0;
 }
 

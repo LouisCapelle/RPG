@@ -10,6 +10,7 @@
 int init_how_to_play(game_t *game)
 {
     init_settings(game);
+    init_music(game);
     init_text_setting(game->settings);
     init_startmenu(game->startmenu);
     init_pausemenu(game);

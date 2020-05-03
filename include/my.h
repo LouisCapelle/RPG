@@ -221,4 +221,7 @@ int destroy_inventory(inv_t *inv);
 void free_ene(enemy_t *);
 void free_keys(keys_t *);
 
+/*music*/
+int init_music(game_t *game);
+
 #endif /* !PROTO */

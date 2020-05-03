@@ -18,6 +18,7 @@ DUNGEON =	src/dungeon/get_path.c					\
 
 GAME	=	src/game/init_gameplay.c				\
 			src/game/draw_player.c					\
+			src/music/init_music.c 					\
 
 KEY 	=	src/keys/init_keys.c 					\
 			src/keys/draw_keys.c					\
