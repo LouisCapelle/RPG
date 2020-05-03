@@ -22,9 +22,20 @@ void event_settings(utils_t *utils)
     }
 }
 
-int init_settings_next(game_t *game)
+int init_game_three(game_t *game)
 {
     sfVector2f scale = {0.3, 0.3};
+    sfSprite_setTexture(game->settings->settings_sprite,
+                        game->settings->settings_texture, sfTrue);
+    sfSprite_setTexture(game->settings->circle_sprite,
+                        game->settings->circle_texture, sfTrue);
+    sfSprite_setScale(game->settings->settings_sprite, scale);
+    sfSprite_setTexture(game->settings->bar_sprite,
+                        game->settings->bar_texture, sfTrue);
+}
+
+int init_settings_next(game_t *game)
+{
     sfVector2f scale_2 = {0.9, 0.9};
     sfVector2f scale_3 = {0.1, 0.1};
 
@@ -39,11 +50,7 @@ int init_settings_next(game_t *game)
     if (!game->settings->settings_texture
     || !game->settings->settings_texture_highlight)
         return 84;
-    sfSprite_setTexture(game->settings->settings_sprite,
-                        game->settings->settings_texture, sfTrue);
-    sfSprite_setTexture(game->settings->circle_sprite,
-                        game->settings->circle_texture, sfTrue);
-    sfSprite_setScale(game->settings->settings_sprite, scale);
+    init_game_three(game);
     return 0;
 }
 
@@ -64,8 +71,6 @@ int init_settings(game_t *game)
     || !game->settings->circle_sprite || !game->settings->bar_texture
     || !game->settings->circle_texture || init_settings_next(game) == 84)
         return 84;
-    sfSprite_setTexture(game->settings->bar_sprite,
-                        game->settings->bar_texture, sfTrue);
     sfSprite_setPosition(game->settings->bar_sprite, pos_2);
     sfSprite_setPosition(game->settings->circle_sprite, pos_3);
     sfSprite_setPosition(game->settings->settings_sprite, pos);

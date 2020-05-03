@@ -25,7 +25,6 @@ void event_sound_bar(game_t *game)
     sfVector2i pos = sfMouse_getPositionRenderWindow(game->utils->window);
     sfVector2f sprite_pos =
     sfSprite_getPosition(game->settings->circle_sprite);
-    sfVector2f temp = {0, 0};
 
     if (!game)
         return;

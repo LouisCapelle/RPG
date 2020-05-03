@@ -17,7 +17,7 @@ void event_how_to_quit(utils_t *utils)
         if (utils->back_to_start == true) {
             utils->in_start = true;
             utils->back_to_start = false;
-        } else 
+        } else
             utils->in_game = true;
         if (utils->in_how_to == 1)
             utils->in_how_to = false;
@@ -37,7 +37,7 @@ void event_how_to(utils_t *utils)
         if (utils->in_start == true) {
             utils->back_to_start = true;
             utils->in_start = false;
-        } else 
+        } else
             utils->in_game = false;
         utils->in_how_to = true;
         sfRenderWindow_clear(utils->window, sfBlack);

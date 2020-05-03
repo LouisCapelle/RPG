@@ -23,5 +23,5 @@ int init_text_pause(pausemenu_t *pausemenu)
     "PAUSE");
     sfText_setPosition(pausemenu->title_text, pos_text);
     sfText_setColor(pausemenu->title_text, sfWhite);
-    //return 0;
+    return 0;
 }

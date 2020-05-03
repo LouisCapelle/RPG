@@ -13,6 +13,8 @@ void display_game_next(game_t *game)
 {
     if (!game)
         return;
+    display_settings_button(game);
+    all_achivs(game->achiv, game->dungeon, game->score);
     if (game->map->open_map == true)
             print_minimap(game);
     if (game->play->attack_number >= 1) {
@@ -41,8 +43,6 @@ sfVector2f player_pos)
         display_score(game);
         display_heart(game->play, game->utils);
         display_how_to(game);
-        display_settings_button(game);
-        all_achivs(game->achiv, game->dungeon, game->score);
         display_game_next(game);
     }
 }

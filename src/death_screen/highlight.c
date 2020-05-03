@@ -37,9 +37,10 @@ int display_highlight_death(game_t *game)
         sfSprite_setTexture(game->death_screen->quit_sprite,
                             game->startmenu->quit_texture, sfTrue);
     }
-    if (mouse.x > 927 && mouse.x < 1111 && mouse.y > 802 && mouse.y < 902) {
+    if (mouse.x > 927 && mouse.x < 1111
+        && mouse.y > 802 && mouse.y < 902) {
         sfSprite_setTexture(game->death_screen->start_sprite,
-                            game->death_screen->start_texture_highlight, sfTrue);
+                        game->death_screen->start_texture_highlight, sfTrue);
         if (game->utils->event.type == sfEvtMouseButtonPressed) {
             new_game(game);
         }

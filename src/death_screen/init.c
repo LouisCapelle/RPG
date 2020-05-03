@@ -34,6 +34,10 @@ void init_more(game_t *game)
 {
     sfVector2f pos = {700, 350};
 
+    game->death_screen->start_texture =
+    sfTexture_createFromFile("./utils/imgs/Play_Again_highlight.png", NULL);
+    game->death_screen->start_texture_highlight =
+    sfTexture_createFromFile("./utils/imgs/Play_Again.png", NULL);
     sfText_setFont(game->death_screen->death_text, game->death_screen->font);
     sfText_setCharacterSize(game->death_screen->death_text, 150);
     sfText_setFont(game->death_screen->high_text, game->death_screen->font);
@@ -45,6 +49,7 @@ void init_more(game_t *game)
     sfText_setColor(game->death_screen->high_text, sfBlack);
     sfText_setColor(game->death_screen->score, sfBlack);
 }
+
 int init_death(game_t *game)
 {
     if (init_death_next(game) == 84 || !game) return 84;
@@ -59,13 +64,7 @@ int init_death(game_t *game)
     ("./utils/imgs/Play_Again.png", NULL);
     game->death_screen->font = sfFont_createFromFile
         ("./utils/font/horrendo.ttf");
-    game->death_screen->start_texture =
-    sfTexture_createFromFile("./utils/imgs/Play_Again_highlight.png", NULL);
-    game->death_screen->start_texture_highlight =
-    sfTexture_createFromFile("./utils/imgs/Play_Again.png", NULL);
-    if (!game->death_screen->death_text || !game->death_screen->font
-        || !game->death_screen->start_texture
-        || !game->death_screen->start_texture_highlight) return 84;
+    if (!game->death_screen->death_text || !game->death_screen->font) return 84;
     init_more(game);
     return 0;
 }

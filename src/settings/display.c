@@ -15,7 +15,7 @@ int event_settings_escape(game_t *game)
         game->utils->in_settings = false;
         game->utils->in_game = true;
     }
-    //return 0;
+    return 0;
 }
 
 int highlight_settings_button(game_t *game)

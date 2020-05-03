@@ -38,7 +38,7 @@ int display_startmenu(utils_t *utils, startmenu_t *startmenu)
     sfRenderWindow_clear(utils->window, sfBlack);
     event_start_menu(utils);
     if (display_highlight_quit(startmenu, mouse_pos) == 84
-    ||display_highlight_start(startmenu, mouse_pos) == 84)
+    || display_highlight_start(startmenu, mouse_pos) == 84)
         return 84;
     sfRenderWindow_drawSprite(utils->window, startmenu->background_sprite,
                                                                     NULL);
