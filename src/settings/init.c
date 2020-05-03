@@ -15,7 +15,15 @@ void event_settings(utils_t *utils)
         return;
     if (utils->event.type == sfEvtMouseButtonPressed &&
             (pos.x >= 1816 && pos.x <= 1869) &&
-            (pos.y >= 35 && pos.y <= 90)) {
+            (pos.y >= 35 && pos.y <= 90) && utils->in_start == true) {
+        utils->back_to_start = true;
+        utils->in_game = false;
+        utils->in_settings = true;
+        sfRenderWindow_clear(utils->window, sfBlack);
+    }
+    if (utils->event.type == sfEvtMouseButtonPressed &&
+            (pos.x >= 1816 && pos.x <= 1869) &&
+            (pos.y >= 35 && pos.y <= 90) && utils->in_game == true) {
         utils->in_game = false;
         utils->in_settings = true;
         sfRenderWindow_clear(utils->window, sfBlack);

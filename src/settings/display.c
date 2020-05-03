@@ -11,9 +11,17 @@ int event_settings_escape(game_t *game)
 {
     if (!game)
         return 84;
-    if (game->utils->event.key.code == sfKeyEscape) {
+    if (game->utils->event.key.code == sfKeyEscape
+        && game->utils->in_game == true) {
         game->utils->in_settings = false;
         game->utils->in_game = true;
+        game->utils->back_to_start = false;
+    }
+    if (game->utils->event.key.code == sfKeyEscape
+        && game->utils->back_to_start == true) {
+        game->utils->in_settings = false;
+        game->utils->in_start = true;
+        game->utils->back_to_start = false;
     }
     return 0;
 }
