@@ -40,6 +40,7 @@ int init_game_three(game_t *game)
     sfSprite_setScale(game->settings->settings_sprite, scale);
     sfSprite_setTexture(game->settings->bar_sprite,
                         game->settings->bar_texture, sfTrue);
+    return 0;
 }
 
 int init_settings_next(game_t *game)
